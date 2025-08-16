@@ -1,0 +1,57 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: linear-gradient(to right, #6974a3, #5e64a0);
+  color: rgb(212, 224, 238);
+}
+.container {
+  text-align: center;
+}
+.flashcard {
+  width: 800px;
+  height: 200px;
+  margin: 20px auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+.front, .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border: 8px solid rgb(247, 230, 202);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.2rem;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.front {
+  background: #4e54c8;
+}
+.back {
+  background: #49755d;
+  transform: rotateY(180deg);
+}
+.flashcard.flipped .front {
+  transform: rotateY(180deg);
+}
+.flashcard.flipped .back {
+  transform: rotateY(0);
+}
+.controls button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: 2px; 
+  border-radius: 5px;
+  cursor: pointer;
+  background: rgb(47, 62, 70);
+  color: #efeff3;
+  font-weight: bold;
+}

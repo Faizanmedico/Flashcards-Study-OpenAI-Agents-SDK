@@ -11,71 +11,78 @@ let currentIndex = 0;
 
 const decks = {
 
-
-
     "Day 1": [
-        {"q": "What is the OpenAI Agents SDK used for?", "a": "Building AI agents that can use tools and perform actions."},
-        {"q": "Which method runs the agent in a loop until the task is done?", "a": "`runner.run()`"},
-        {"q": "What does an agent primarily interact with?", "a": "Tools"},
-        {"q": "What is the main role of a Runner?", "a": "To execute the agent’s reasoning loop until the task completes."},
-        {"q": "What language is the Agents SDK written in?", "a": "Python"},
-        {"q": "Which import brings in the Agent class?", "a": "`from openai import Agent`"},
-        {"q": "What does the Agent class represent?", "a": "An AI entity that can reason, plan, and use tools."},
-        {"q": "Which function is used to define custom tools?", "a": "Python functions decorated with `@tool`."},
-        {"q": "What is a tool in the Agents SDK?", "a": "A callable function that the agent can use to perform an action."},
-        {"q": "Can Agents SDK connect to external APIs?", "a": "Yes, through tools that wrap API calls."}
+        {"q": "What is the OpenAI Agents SDK used for?", "a": "Building AI agents that can use tools and perform actions"},
+        {"q": "Which programming language is most commonly used with the Agents SDK?", "a": "Python"},
+        {"q": "What is the purpose of a tool in the Agents SDK?", "a": "To let the agent interact with external systems or perform actions"},
+        {"q": "What does an agent typically consist of?", "a": "Goal, memory, tools, and reasoning ability"},
+        {"q": "Which function is used to start running an agent?", "a": "runner.run()"},
+        {"q": "What is the role of memory in an agent?", "a": "To store past interactions and context"},
+        {"q": "What are tools usually defined as in the SDK?", "a": "Functions or APIs the agent can call"},
+        {"q": "Which file usually stores API keys for safety?", "a": ".env"},
+        {"q": "What is the difference between sync and async execution in Python?", "a": "Async allows non-blocking operations, sync does not"},
+        {"q": "Why is error handling important in agents?", "a": "It ensures smooth recovery when tools or actions fail"}
     ],
     "Day 2": [
-        {"q": "What decorator is commonly used to define tools?", "a": "`@tool`"},
-        {"q": "What is the purpose of structured tools?", "a": "They define input/output schemas for tool calls."},
-        {"q": "Which argument passes tools to an Agent?", "a": "`tools=[...]`"},
-        {"q": "Can tools have multiple arguments?", "a": "Yes, when defined with structured input."},
-        {"q": "What is the main benefit of structured tools?", "a": "They ensure clarity in inputs/outputs."},
-        {"q": "How does an agent decide which tool to call?", "a": "Through reasoning with the model."},
-        {"q": "What is returned after a tool call?", "a": "The tool’s output/result."},
-        {"q": "How can you log tool calls?", "a": "By enabling debugging or custom logging."},
-        {"q": "Can a tool call another tool?", "a": "Yes, indirectly via the agent loop."},
-        {"q": "What happens if a tool raises an error?", "a": "The agent can handle it gracefully or retry."}
+        {"q": "What does `agent.step()` do?", "a": "Runs a single reasoning-action cycle"},
+        {"q": "What does `runner.run()` do?", "a": "Runs the agent until the task is completed"},
+        {"q": "What is the benefit of structured tools?", "a": "They validate input and output with defined schemas"},
+        {"q": "How are tool arguments usually validated?", "a": "Using JSON Schema"},
+        {"q": "What is an output type?", "a": "The format the agent’s final answer should be in"},
+        {"q": "Why are clear output types important?", "a": "They ensure reliable and predictable agent responses"},
+        {"q": "What does memory allow agents to do?", "a": "Maintain context across multiple steps"},
+        {"q": "What is the main purpose of an agent?", "a": "To achieve goals by reasoning and using tools"},
+        {"q": "Which SDK object represents the agent itself?", "a": "Agent"},
+        {"q": "Which SDK object manages the loop execution?", "a": "Runner"}
     ],
     "Day 3": [
-        {"q": "What is an agent’s core reasoning cycle?", "a": "Decide → Plan → Act → Observe → Repeat."},
-        {"q": "Which function executes one reasoning step?", "a": "`agent.step()`"},
-        {"q": "What happens if the task is incomplete after a step?", "a": "The agent takes another step."},
-        {"q": "What is the advantage of using `runner.run()`?", "a": "Automates multiple steps until completion."},
-        {"q": "What does agent memory store?", "a": "Conversation history, tool results, context."},
-        {"q": "Is persistence supported in memory?", "a": "Yes, via custom memory backends."},
-        {"q": "What is the difference between `agent.step()` and `runner.run()`?", "a": "`step()` is one iteration; `run()` continues until finished."},
-        {"q": "How can you integrate Agents with a front-end?", "a": "Via APIs or frameworks like Chainlit/Streamlit."},
-        {"q": "Can the SDK run multiple agents?", "a": "Yes, multi-agent orchestration is possible."},
-        {"q": "What is a common use-case for Agents?", "a": "Automation, API orchestration, assistants."}
+        {"q": "What is tool registration?", "a": "The process of making tools available to an agent"},
+        {"q": "Why do we register tools?", "a": "So the agent knows what tools it can use"},
+        {"q": "What happens if an agent tries to call an unregistered tool?", "a": "It will fail with an error"},
+        {"q": "What is a practical example of a tool?", "a": "A weather API or calculator function"},
+        {"q": "What is prompt engineering in Agents SDK?", "a": "Shaping prompts to guide agent reasoning and tool use"},
+        {"q": "How does the SDK connect to external APIs?", "a": "Through registered tools"},
+        {"q": "What is a risk of letting agents call tools?", "a": "Security issues if tools are not sandboxed"},
+        {"q": "What is a safe practice when building tools?", "a": "Validate inputs and restrict dangerous actions"},
+        {"q": "What happens if a tool raises an exception?", "a": "The agent must handle it through error handling"},
+        {"q": "What is Chainlit often used for?", "a": "Building front-end UIs for agents"}
     ],
     "Day 4": [
-        {"q": "Why are clear output types important?", "a": "To ensure predictable and structured responses."},
-        {"q": "What format are outputs usually defined in?", "a": "JSON schema."},
-        {"q": "What is the benefit of explicit schemas?", "a": "Prevents ambiguous responses."},
-        {"q": "What happens if a tool output doesn’t match schema?", "a": "The SDK may raise a validation error."},
-        {"q": "Why handle exceptions in agent workflows?", "a": "To avoid crashes and improve reliability."},
-        {"q": "What mechanism allows retrying failed tool calls?", "a": "Custom error handling or retry logic."},
-        {"q": "Can you customize error handling?", "a": "Yes, via exception blocks and custom logic."},
-        {"q": "Why is logging important?", "a": "Helps debug agent reasoning and tool calls."},
-        {"q": "How to avoid infinite loops?", "a": "Set step/iteration limits in Runner."},
-        {"q": "Why should security be considered?", "a": "Agents may access external APIs or execute code."}
+        {"q": "What does `asyncio` in Python provide?", "a": "Support for asynchronous programming"},
+        {"q": "What does async I/O mean?", "a": "Multiple tasks can run without waiting for each other"},
+        {"q": "How does sync execution differ from async?", "a": "Sync blocks tasks, async allows concurrency"},
+        {"q": "Why is async useful in agents?", "a": "It helps handle multiple tool calls efficiently"},
+        {"q": "Which Python keyword is used for async functions?", "a": "async def"},
+        {"q": "Which keyword is used to wait for async results?", "a": "await"},
+        {"q": "What happens if you forget to await an async function?", "a": "It returns a coroutine object instead of a result"},
+        {"q": "What is an example of async usage in agents?", "a": "Calling multiple APIs at once"},
+        {"q": "What is a coroutine?", "a": "A special Python function that can be paused and resumed"},
+        {"q": "What is the event loop?", "a": "The core of asyncio that schedules and runs tasks"}
     ],
     "Day 5": [
-        {"q": "What is tool chaining?", "a": "Using outputs of one tool as inputs to another."},
-        {"q": "What is delegation in multi-agent systems?", "a": "One agent handing off a task to another."},
-        {"q": "What’s a key challenge in multi-agent workflows?", "a": "Coordination and communication."},
-        {"q": "What does persistence enable?", "a": "Saving agent state across sessions."},
-        {"q": "Which feature enables long-term memory?", "a": "Custom memory backends (e.g., databases)."},
-        {"q": "What’s the difference between short-term and long-term memory?", "a": "Short-term is per run; long-term is persistent."},
-        {"q": "What is the benefit of modular tool design?", "a": "Reusability across different agents."},
-        {"q": "What’s a potential risk of powerful tools?", "a": "Unintended side effects or misuse."},
-        {"q": "What is grounding?", "a": "Ensuring agent actions align with real-world context."},
-        {"q": "What’s the role of human-in-the-loop?", "a": "Humans review or approve agent actions."}
+        {"q": "What does the Agents SDK primarily enable?", "a": "Creating agents that can use tools and reason"},
+        {"q": "Which component automates execution until completion?", "a": "Runner"},
+        {"q": "Which component handles reasoning and tool usage?", "a": "Agent"},
+        {"q": "Why are tools important?", "a": "They let the agent perform external actions"},
+        {"q": "Why is memory useful?", "a": "It keeps track of past interactions"},
+        {"q": "What is the role of output types?", "a": "To define the format of final results"},
+        {"q": "Which part of the SDK runs a single cycle?", "a": "agent.step()"},
+        {"q": "Which part of the SDK runs the whole loop?", "a": "runner.run()"},
+        {"q": "Why is validation important for tools?", "a": "It ensures correct input/output"},
+        {"q": "What does prompt engineering influence?", "a": "The way the agent reasons and uses tools"}
+    ],
+    "Day 6": [
+        {"q": "What does the Agent object primarily represent?", "a": "The central AI agent with memory, goal, and actions"},
+        {"q": "Which method executes a single step of the agent loop?", "a": "agent.step()"},
+        {"q": "What is the difference between runner.run() and agent.step()?", "a": "runner.run() runs the full loop, agent.step() runs one iteration"},
+        {"q": "What are structured tools in the Agents SDK?", "a": "Tools defined with arguments and types using JSON Schema"},
+        {"q": "Why is defining tool argument schemas important?", "a": "It validates inputs and guides outputs"},
+        {"q": "What is the role of Runner?", "a": "Executes the loop connecting agent and tools until task is done"},
+        {"q": "How can agents handle external APIs?", "a": "Through registered tools that call the APIs"},
+        {"q": "Which feature lets agents preserve state across conversations?", "a": "Memory"},
+        {"q": "What are output types in the SDK?", "a": "The format in which the agent’s final result is returned"},
+        {"q": "Why is error handling important in agent workflows?", "a": "To prevent crashes and recover from tool failures"}
     ]
-
-
-
 
 
 

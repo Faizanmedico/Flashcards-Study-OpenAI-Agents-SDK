@@ -1,0 +1,355 @@
+📚 Flashcards – Days 1 to 11
+🔹 Day 1 – Agents Basics
+
+❓ What is the OpenAI Agents SDK used for?
+✅ Building AI agents that can use tools and perform actions.
+
+❓ Which programming language is most commonly used with the Agents SDK?
+✅ Python.
+
+❓ What is the purpose of a tool in the Agents SDK?
+✅ To let the agent interact with external systems or perform actions.
+
+❓ What does an agent typically consist of?
+✅ Goal, memory, tools, and reasoning ability.
+
+❓ Which function is used to start running an agent?
+✅ runner.run().
+
+❓ What is the role of memory in an agent?
+✅ To store past interactions and context.
+
+❓ What are tools usually defined as in the SDK?
+✅ Functions or APIs the agent can call.
+
+❓ Which file usually stores API keys for safety?
+✅ .env.
+
+❓ What is the difference between sync and async execution in Python?
+✅ Async allows non-blocking operations; sync does not.
+
+❓ Why is error handling important in agents?
+✅ It ensures smooth recovery when tools or actions fail.
+
+🔹 Day 2 – Agent Tools
+
+❓ What does agent.step() do?
+✅ Runs a single reasoning–action cycle.
+
+❓ What does runner.run() do?
+✅ Runs the agent until the task is completed.
+
+❓ What is the benefit of structured tools?
+✅ Validate input and output with defined schemas.
+
+❓ How are tool arguments usually validated?
+✅ Using JSON Schema.
+
+❓ What is an output type?
+✅ The format the agent’s final answer should be in.
+
+❓ Why are clear output types important?
+✅ They ensure reliable and predictable agent responses.
+
+❓ What does memory allow agents to do?
+✅ Maintain context across multiple steps.
+
+❓ What is the main purpose of an agent?
+✅ Achieve goals by reasoning and using tools.
+
+❓ Which SDK object represents the agent itself?
+✅ Agent.
+
+❓ Which SDK object manages the loop execution?
+✅ Runner.
+
+🔹 Day 3 – Workflows
+
+❓ What is tool registration?
+✅ Making tools available to an agent.
+
+❓ Why do we register tools?
+✅ So the agent knows what tools it can use.
+
+❓ What happens if an agent calls an unregistered tool?
+✅ It fails with an error.
+
+❓ What does defining an agent’s goal help with?
+✅ Keeps the reasoning focused.
+
+❓ What is a reasoning–action loop?
+✅ The cycle where the agent thinks, chooses an action, and executes it.
+
+❓ Why is structured logging useful in workflows?
+✅ Helps debug and trace agent decisions.
+
+❓ How do agents know when to stop?
+✅ When the output type or stopping condition is met.
+
+❓ What does an “instruction prompt” provide?
+✅ Guidance on agent behavior and style.
+
+❓ Why might you use multiple tools in a workflow?
+✅ To let the agent solve more complex tasks.
+
+❓ What ensures reliability in workflows?
+✅ Error handling and validation.
+
+🔹 Day 4 – Memory
+
+❓ What is short-term memory in agents?
+✅ Memory within a single reasoning loop.
+
+❓ What is long-term memory in agents?
+✅ Memory that persists across multiple runs or sessions.
+
+❓ Why is memory important?
+✅ Provides context for better decisions.
+
+❓ What can happen if memory is not managed?
+✅ Agents may forget important context.
+
+❓ Which technique compresses memory into summaries?
+✅ Summarization.
+
+❓ Why store memory in external databases?
+✅ For persistence beyond runtime.
+
+❓ What is retrieval-augmented memory?
+✅ Fetching relevant past data when needed.
+
+❓ Can memory store tool results?
+✅ Yes, for future reference.
+
+❓ Why is context-window size important?
+✅ Too much data may overflow the model’s limit.
+
+❓ What’s one challenge of long-term memory?
+✅ Balancing detail with relevance.
+
+🔹 Day 5 – Output Types
+
+❓ What are output types in the SDK?
+✅ Predefined formats for final agent responses.
+
+❓ Why are they needed?
+✅ To make responses predictable.
+
+❓ Give an example of an output type.
+✅ JSON.
+
+❓ What happens if output doesn’t match type?
+✅ It’s rejected or raises an error.
+
+❓ What’s the difference between free-text and structured outputs?
+✅ Free-text is open; structured has rules.
+
+❓ Why is type enforcement important?
+✅ Ensures integration safety.
+
+❓ Can agents produce multiple output types?
+✅ Yes, if defined.
+
+❓ What tool validates JSON outputs?
+✅ JSON Schema.
+
+❓ What’s an example use case for structured output?
+✅ API responses.
+
+❓ What ensures outputs are machine-readable?
+✅ Structured formats.
+
+🔹 Day 6 – Advanced Tools
+
+❓ What are external tools?
+✅ APIs or services outside the agent.
+
+❓ Why use API keys?
+✅ To secure tool access.
+
+❓ What’s an internal tool?
+✅ Functions coded inside the project.
+
+❓ Why define input schemas?
+✅ To avoid invalid inputs.
+
+❓ What’s a dynamic tool?
+✅ One that adapts at runtime.
+
+❓ Can agents chain tools?
+✅ Yes, step by step.
+
+❓ Why limit tool access?
+✅ For safety and security.
+
+❓ What is tool misuse?
+✅ Using tools in unintended ways.
+
+❓ What helps agents choose tools correctly?
+✅ Clear instructions.
+
+❓ Why log tool usage?
+✅ For debugging and monitoring.
+
+🔹 Day 7 – Error Handling
+
+❓ Why is error handling critical?
+✅ Prevents agent crashes.
+
+❓ What’s a common error type in tools?
+✅ Invalid input.
+
+❓ How can retries help?
+✅ Give tools another chance to work.
+
+❓ Why provide fallback strategies?
+✅ To ensure graceful recovery.
+
+❓ What’s exception handling in Python?
+✅ try...except blocks.
+
+❓ Why monitor tool timeouts?
+✅ To avoid hangs.
+
+❓ What’s a safe default response?
+✅ A fallback answer when things fail.
+
+❓ Why log errors?
+✅ For debugging and improvements.
+
+❓ What is user-facing error handling?
+✅ Showing friendly error messages.
+
+❓ Why use validation before tool calls?
+✅ To prevent invalid usage.
+
+🔹 Day 8 – Multi-Agent Systems
+
+❓ What is a multi-agent system?
+✅ Multiple agents working together.
+
+❓ Why use multi-agent setups?
+✅ To divide tasks by specialization.
+
+❓ What’s coordination in multi-agent systems?
+✅ How agents share work.
+
+❓ What’s a mediator agent?
+✅ An agent that manages others.
+
+❓ What are communication protocols?
+✅ Rules for agent interactions.
+
+❓ Why give agents different roles?
+✅ For expertise.
+
+❓ What’s a risk of multi-agent systems?
+✅ Conflicts or loops.
+
+❓ How to avoid conflicts?
+✅ Define clear responsibilities.
+
+❓ Can agents pass memory to each other?
+✅ Yes, if designed.
+
+❓ What is emergent behavior?
+✅ Unexpected results from interactions.
+
+🔹 Day 9 – Security
+
+❓ Why is security important in agents?
+✅ To protect data and systems.
+
+❓ What’s least privilege principle?
+✅ Giving only needed access.
+
+❓ Why hide API keys?
+✅ To prevent leaks.
+
+❓ What’s prompt injection?
+✅ Malicious instructions hidden in inputs.
+
+❓ How to defend against prompt injection?
+✅ Input validation and filtering.
+
+❓ Why sandbox code execution?
+✅ To isolate risky code.
+
+❓ What’s rate limiting?
+✅ Restricting request frequency.
+
+❓ Why encrypt memory storage?
+✅ To protect sensitive info.
+
+❓ What’s monitoring useful for?
+✅ Detecting misuse.
+
+❓ Why audit tool usage?
+✅ For accountability.
+
+🔹 Day 10 – Real-World Applications
+
+❓ What’s a common real-world use of agents?
+✅ Customer support chatbots.
+
+❓ How do agents help in e-commerce?
+✅ Product recommendations.
+
+❓ What’s a research assistant agent?
+✅ An agent that finds and summarizes info.
+
+❓ Why use agents in automation?
+✅ To reduce manual work.
+
+❓ What’s an educational use of agents?
+✅ Interactive tutors.
+
+❓ How do agents support developers?
+✅ By coding assistance.
+
+❓ Why use agents for scheduling?
+✅ To manage calendars.
+
+❓ What’s a healthcare application?
+✅ Symptom checking assistants.
+
+❓ Why use multi-agent simulations?
+✅ For testing complex systems.
+
+❓ What’s a finance application?
+✅ Fraud detection assistants.
+
+🔹 Day 11 – Agent Debugging
+
+❓ Why is debugging agents important?
+✅ To ensure reliability.
+
+❓ What’s step-by-step tracing?
+✅ Following each reasoning cycle.
+
+❓ Why log tool inputs/outputs?
+✅ To verify correct usage.
+
+❓ What is inspection mode?
+✅ Running the agent with detailed outputs.
+
+❓ Why use mock tools in debugging?
+✅ To test without real effects.
+
+❓ What’s break-point debugging?
+✅ Pausing execution to inspect.
+
+❓ Why analyze agent memory?
+✅ To check for missing context.
+
+❓ What’s one challenge in debugging?
+✅ Non-determinism of LLMs.
+
+❓ Why repeat runs in debugging?
+✅ To compare consistency.
+
+❓ What’s a diagnostic prompt?
+✅ Special instructions to reveal reasoning.
+
+❓ Why maintain debug logs?
+✅ For long-term analysis.
